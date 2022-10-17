@@ -1,69 +1,66 @@
 import React from "react";
 import { Parallax, useParallax } from "react-scroll-parallax";
+import { useState, useEffect } from "react";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 type Props = {};
 
 function Hero({}: Props) {
-  // const { ref } = useParallax<HTMLDivElement>({ opacity: [0, 1] });
+  const { width, page_height } = useWindowDimensions();
 
   return (
     <div>
       <div className="h-screen w-screen"></div>
-
-      <div className="h-screen w-screen fixed top-0 left-0">
-        <img src="/1.png" alt="" />
-      </div>
       <div className="h-screen w-screen"></div>
+      <div className="h-screen w-screen"></div>
+      <div className="h-screen w-screen"></div>
+      <div className="h-screen w-screen"></div>
+      <div className="h-screen w-screen"></div>
+
+      <div className="h-screen w-screen fixed top-0 left-0 bg-[url('/../1.png')] bg-cover bg-center	"></div>
+
       <Parallax
         startScroll={0}
-        endScroll={1200}
+        endScroll={page_height}
         opacity={[0, 1, "easeIn"]}
-        className="h-screen w-screen fixed top-0 left-0 "
-      >
-        <img src="/2.png" alt="" />
-      </Parallax>
-      <div className="h-screen w-screen"></div>
+        className="h-screen w-screen fixed top-0 left-0 bg-[url('/../2.png')] bg-cover bg-center	"
+      ></Parallax>
 
       <Parallax
-        startScroll={1200}
-        endScroll={2400}
+        startScroll={page_height * 1}
+        endScroll={page_height * 2}
         translateX={[100, 0, "easeIn"]}
-        className="h-screen w-screen fixed top-0 left-0"
-      >
-        <img src="/3.gif" alt="" />
-      </Parallax>
+        className="h-screen w-screen fixed top-0 left-0 bg-[url('/../3.gif')] bg-cover bg-center	"
+      ></Parallax>
 
-      <div className="h-screen w-screen"></div>
       <Parallax
         translateY={[100, 0, "easeIn"]}
-        startScroll={2400}
-        endScroll={3600}
-        className="h-screen w-screen fixed top-0 left-0"
-      >
-        <img src="/4.png" alt="" />
-      </Parallax>
-
-      <div className="h-screen w-screen"></div>
-      <Parallax
-        opacity={[0, 1, "easeIn"]}
-        startScroll={3600}
-        endScroll={4800}
-        className="h-screen w-screen fixed top-0 left-0"
-      >
-        <img src="/5.png" alt="" />
-      </Parallax>
-      <div className="h-screen w-screen z-[100]"></div>
-      <div className="h-screen w-screen z-[100]"></div>
+        startScroll={page_height * 2}
+        endScroll={page_height * 3}
+        className="h-screen w-screen fixed top-0 left-0 bg-[url('/../4.png')] bg-cover bg-center	"
+      ></Parallax>
 
       <Parallax
         opacity={[0, 1, "easeIn"]}
-        startScroll={4800}
-        endScroll={6000}
-        className="h-screen w-screen fixed top-0 left-0"
+        startScroll={page_height * 3}
+        endScroll={page_height * 4}
+        className="h-screen w-screen fixed top-0 left-0 bg-[url('/../5.png')] bg-cover	"
+      ></Parallax>
+
+      <Parallax
+        opacity={[0, 1, "easeIn"]}
+        startScroll={page_height * 4}
+        endScroll={page_height * 5}
+        className="h-screen w-screen fixed top-0 left-0 "
       >
-        <img src="/Renga_logo_Slim_White.svg" alt="" />
+        <div className="flex w-full h-full items-center justify-center">
+          <img
+            src="/Renga_logo_Slim_White.svg"
+            alt=""
+            className="items-center px-[30vw] pt-"
+          />
+        </div>
       </Parallax>
-      <div className="h-screen w-screen z-[100]"></div>
     </div>
   );
 }
